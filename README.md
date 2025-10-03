@@ -29,16 +29,86 @@ Leia o enunciado completo no Canvas.
 ## Cole aqui abaixo a estrutura JSON utilizada no app.js
 
 ```javascript
-const dados = [
-  {
-    "id": 1,
-    "titulo": "Prefeitura Lança Plano de Mobilidade Urbana",
-    "descricao": "Novo plano do transporte público.",
-    "conteudo": "A Prefeitura apresentou nesta segunda-feira um novo plano de mobilidade urbana.",
-    "categoria": "Cidades",
-    "autor": "Joana Ribeiro",
-    "data": "2025-03-30",
-    "imagem": "img/mobilidade.jpg"
-  }
+const capitais = [
+    {
+        "id": 1,
+        "estado": "Acre",
+        "nome": "Rio Branco",
+        "anoFundacao": "1882",
+        "pop": "143.000",
+        "conteudo": "Rio Branco é a porta de entrada para a Amazônia e um ponto de encontro entre a natureza exuberante e o espírito acolhedor do norte."
+    },
+    {
+        "id": 2,
+        "estado": "Amazonas",
+        "nome": "Manaus",
+        "anoFundacao": "1669",
+        "pop": "2.300.000",
+        "conteudo": "Manaus, no coração da Amazônia, é a mistura perfeita de história, cultura e natureza selvagem, com a selva como cenário de sua vida urbana."
+    },
+    {
+        "id": 3,
+        "estado": "Bahia",
+        "nome": "Salvador",
+        "anoFundacao": "1549",
+        "pop": "2.900.000",
+        "conteudo": "Salvador é a cidade onde o passado e o presente se encontram, com um patrimônio cultural vibrante e um povo conhecido pela alegria contagiante."
+    },
+    {
+        "id": 4,
+        "estado": "Ceará",
+        "nome": "Fortaleza",
+        "anoFundacao": "1726",
+        "pop": "2.800.000",
+        "conteudo": "Fortaleza é a cidade do sol, com suas praias incríveis, clima quente e uma energia que nunca se apaga, sempre vibrante e cheia de vida."
+    },
+    {
+        "id": 5,
+        "estado": "Distrito Federal",
+        "nome": "Brasília",
+        "anoFundacao": "1960",
+        "pop": "3.100.000",
+        "conteudo": "Brasília, com sua arquitetura futurista e a simplicidade planejada, é o coração político do Brasil, simbolizando a modernidade e a inovação."
+    },
+    {
+        "id": 6,
+        "estado": "Goiás",
+        "nome": "Goiânia",
+        "anoFundacao": "1933",
+        "pop": "1.600.000",
+        "conteudo": "Goiânia mistura modernidade e charme, com uma natureza exuberante e uma vida cultural rica que atrai turistas e moradores com sua hospitalidade."
+    },
+    {
+        "id": 7,
+        "estado": "Minas Gerais",
+        "nome": "Belo Horizonte",
+        "anoFundacao": "1897",
+        "pop": "2.600.000",
+        "conteudo": "Belo Horizonte é uma cidade de montanhas e sabores, com uma gastronomia inesquecível e um povo apaixonado por seu estado e suas tradições."
+    },
+    {
+        "id": 8,
+        "estado": "Rio de Janeiro",
+        "nome": "Rio de Janeiro",
+        "anoFundacao": "1565",
+        "pop": "6.700.000",
+        "conteudo": "O Rio é a cidade maravilhosa que nunca dorme, com suas praias mundialmente conhecidas, o Cristo Redentor e um carnaval que é sinônimo de festa."
+    },
+    {
+        "id": 9,
+        "estado": "Santa Catarina",
+        "nome": "Florianópolis",
+        "anoFundacao": "1673",
+        "pop": "600.000",
+        "conteudo": "Florianópolis é uma das cidades mais charmosa do Brasil, com suas praias paradisíacas, rica gastronomia e cultura açoriana."
+    },
+    {
+        "id": 10,
+        "estado": "São Paulo",
+        "nome": "São Paulo",
+        "anoFundacao": "1554",
+        "pop": "12.500.000",
+        "conteudo": "São Paulo é a metrópole que nunca para, uma cidade de gigantes, onde o cosmopolitismo se mistura com uma diversidade cultural incomparável."
+    }
 ]
 ```
