@@ -13,10 +13,10 @@ Leia o enunciado completo no Canvas.
 
 ## Informações Gerais
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Enrico Guilherme Silva da Mata
+- Matricula: 902513
+- Proposta de projeto escolhida: Lugares e Experiências
+- Breve descrição sobre seu projeto: Breve descrição sobre seu projeto: Uma página web que exibe cidades capitais de estados do Brasil, com curiosidades e características de cada uma.
 
 ## Print da Home-Page
 
