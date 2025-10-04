@@ -20,11 +20,11 @@ Leia o enunciado completo no Canvas.
 
 ## Print da Home-Page
 
-<<  COLOQUE A IMAGEM AQUI >>
+![alt text](public/img/print_home_page.png)
 
 ## Print da página de detalhes do item
 
-<<  COLOQUE A IMAGEM AQUI >>
+![alt text](public/img/print_detalhes.png)
 
 ## Cole aqui abaixo a estrutura JSON utilizada no app.js
 
