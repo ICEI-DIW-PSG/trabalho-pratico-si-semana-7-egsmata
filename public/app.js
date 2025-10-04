@@ -102,19 +102,6 @@ const capitais = [
     }
 ]
 
-// ESTRUTURA DOS CARDS DAS CAPITAIS
-var tituloCidade1 = document.getElementById('tituloCidade1');
-var tituloCidade2 = document.getElementById('tituloCidade2');
-var tituloCidade3 = document.getElementById('tituloCidade3');
-
-var imgCidade1    = document.getElementById('imgCidade1');
-var imgCidade2    = document.getElementById('imgCidade2');
-var imgCidade3    = document.getElementById('imgCidade3');
-
-var textoCidade1  = document.getElementById('textoCidade1');
-var textoCidade2  = document.getElementById('textoCidade2');
-var textoCidade3  = document.getElementById('textoCidade3');
-
 // FUNÇÕES ----------------------------------------------------------------------------------
 // NÚMERO ALEATORIO
 function randInt(maximo, minimo) {
@@ -122,35 +109,74 @@ function randInt(maximo, minimo) {
 }
 
 // PEGAR TRÊS CAPITAIS PARA A HOME PAGE
-function getCards() {
+function setCards() {
 
-    // PEGA 3 ID'S ALEATÓRIOS E GARANTE QUE NÃO SEJAM IGUAIS
-    let id1 = randInt(1, 10);
-    let id2 = randInt(1, 10);
-    let id3 = randInt(1, 10);
-    while (id2 == id1 || id2 == id3) {
-        id2 = randInt(1, 10);
+    // PEGA O ELEMENTO 'MAIN' DO HTML
+    let container = document.getElementById('containerMain');
+    let lastID = 0;
+
+    // FAZ 3 CARDS, UM CARD A CADA REPETIÇÃO
+    for (var i = 0; i < 3; i++) {
+
+        // PEGA UM ID ALEATÓRIO
+        let id = randInt(1, 10);
+
+        // VERIFICA SE PEGOU UM ID IGUAL AO ANTERIOR
+        while (i > 0 && id == lastID) {
+            id = randInt(1, 10);
+        }
+
+        // EVITA DOIS CARDS IGUAIS
+        lastID = id;
+
+        // A PARTIR DO ID, POVOA O CARD E PASSA PRO PRÓXIMO
+        const capital = capitais.find(c => c.id === id);
+
+        // GERA A ESTRUTURA DE UM CARD NO HTML
+        container.innerHTML += `
+            <article class="bg-light text-dark w-75 ms-3 mb-3 p-3 border border-dark rounded-4 d-flex flex-column align-items-center">
+                <a href="detalhes.html?id=${id}" class="text-decoration-none text-dark id="linkCard">
+                    <h1 class="text-uppercase" id="tituloCidade${i}"></h1>
+                    <img id="imgCidade${i}" class="img-fluid w-100 mw-100 h-auto d-inline-block">
+                    <p class="fs-3" id="textoCidade${i}"></p>
+                </a>
+            </article>
+        `;
+
+        // COLETA OS ELEMENTOS HTML PARA POVOAR COM INFORMAÇÕES DO JSON
+        var tituloCidade = document.getElementById(`tituloCidade${i}`);
+        var imgCidade = document.getElementById(`imgCidade${i}`);
+        var textoCidade = document.getElementById(`textoCidade${i}`);
+
+        tituloCidade.innerHTML = capital.nome;
+        imgCidade.src = capital.srcImg;
+        textoCidade.innerHTML = capital.sobre;
     }
-
-    while (id3 == id1 || id3 == id2) {
-        id2 = randInt(1, 10);
-    }
-
-    const capital1 = capitais.find(c => c.id === id1);
-    const capital2 = capitais.find(c => c.id === id2);
-    const capital3 = capitais.find(c => c.id === id3);
-
-    tituloCidade1.innerHTML = capital1.nome;
-    tituloCidade2.innerHTML = capital2.nome;
-    tituloCidade3.innerHTML = capital3.nome;
-
-    imgCidade1.src = capital1.srcImg;
-    imgCidade2.src = capital2.srcImg;
-    imgCidade3.src = capital3.srcImg;
-
-    textoCidade1.innerHTML = capital1.sobre;
-    textoCidade2.innerHTML = capital2.sobre;
-    textoCidade3.innerHTML = capital3.sobre;
 }
 
-window.onload(getCards());
+function getURL() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    return id;
+}
+
+function montarCard() {
+    const id = getURL();
+    const capital = capitais.find(c => c.id == id);
+
+    let cidade = document.getElementById('cidade');
+    cidade.innerHTML += `
+        <div class="w-75 p-5 bg-primary bg-opacity-50 rounded-5" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(${capital.srcImg}); background-size: cover; height: 500px; border: 3px solid black">
+            <div>
+                <h1 class="text-danger" id="nomeCard"></h1>
+                <p class="fs-2" id="conteudoCard"></p>
+            </div>
+        </div>
+    `;
+
+    let nomeCard = document.getElementById('nomeCard');
+    let conteudoCard = document.getElementById('conteudoCard');
+
+    nomeCard.innerHTML = capital.nome;
+    conteudoCard.innerHTML = capital.conteudo;
+}
